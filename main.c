@@ -44,6 +44,9 @@
 #include "main.h"
 #include "stm32f0xx_hal.h"
 void _Error_Handler(char * file, int line);
+/*
+ KEY Commands for terminal
+ */
 
 /* USER CODE BEGIN Includes */
 
@@ -69,7 +72,14 @@ void SystemClock_Config(void);
 /* USER CODE END 0 */
 //
 
-
+/*
+ useful things
+ bit follows for the LED
+ RED = 6
+ BLUE = 7
+ ORANGE = 8
+ GREEN = 9
+ */
 int main(void)
 {
     HAL_Init(); // Reset of all peripherals, init the Flash and Systick
@@ -86,8 +96,9 @@ int main(void)
     GPIOC->PUPDR &= 0; // sets the pulldown/pullup resitor
     
     //sets all the values in modder to the correct pin into input mode.
-    //               10                     10                 10                10
-    GPIOC->MODER |= (0<< 12) |(1<<13)| (0 << 14)| (1<<15)| (1<< 16)|(0<<17) | (1 << 18) | (0<<19); //configures what pins for use setting up the mode
+    // the value is 01 for output mode.
+    //               PC6        PC7       PC8       PC9
+    GPIOC->MODER |= (1<<12) | (1<<14) | (1<<16) | (1<<18);
    
     
 
@@ -95,9 +106,9 @@ int main(void)
    
    
  
-        while(1) {
-          
-            
+    while(1) {
+     //DO STUFF HERE.      
+           
             
      }
 
